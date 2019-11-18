@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">MOMent</string>
+    <string name="select">Select!</string>
+    <array name="category_names">
+        <item>일상</item>
+        <item>과거</item>
+        <item>미래</item>
+        <item>가족</item>
+        <item>사랑</item>
+        <item>가치</item>
+        <item>나</item>
+        <item>인생</item>
+        <item>상상</item>
+    </array>
+
+    <array name="category_desc">
+        <item>
+            바쁜 하루 속에서 \n일어나는 소소한 변화 \n \n요즘 어떻게 지내고 있나요?
+        </item>
+        <item>
+            “그땐 그랬는데” \n \n오늘과는 다른 나를 마주해요.
+        </item>
+        <item>
+            결혼? 자녀? 노후? \n\n내가 그리는 내일은 어떤 모습인가요?
+        </item>
+        <item>
+            닮은듯 다른 우리\n\n우리의 연결고리를 찾아 떠나요.
+
+        </item>
+        <item>
+            WHAT IS LOVE?\n\n당신의 러브스토리가 궁금해요
+
+        </item>
+        <item>
+            나를 이루는\n 나의 생각들 \n\n내 삶을 지탱하는 \n 뿌리는 무엇인가요?
+        </item>
+        <item>
+            ‘나’에 대해 \n돌아보는 시간, \n\n‘나’는 어떤 사람인가요?
+        </item>
+        <item>
+            당신의 인생을 함께 그려보아요 \n\n어떤 색으로 칠하고 싶나요?
+        </item>
+        <item>
+            만약 당신이라면? \n\n재미있는 상황들을 상상해보아요
+        </item>
+    </array>
+</resources>

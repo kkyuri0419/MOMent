@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+>
+
+    <RelativeLayout
+        android:layout_width="250dp"
+        android:layout_height="350dp"
+        android:gravity="center_horizontal"
+        android:padding="15dp">
+
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/audio_on" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView10"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="대화음성\n기록 서비스를\n이용하시겠습니까? "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView23"
+            android:gravity="center"
+            android:text="(녹음본은 다이어리에서 확인할 수 있습니다.)"
+            android:textSize="11sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/textView24"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/audioYesBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_marginTop="0.5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/mainPink"
+                android:fontFamily="@font/komacona"
+                android:text="네,\n기록할래요"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/audioNoBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_marginTop="8.5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/mainPink"
+                android:fontFamily="@font/komacona"
+                android:text="아니요"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</LinearLayout>
