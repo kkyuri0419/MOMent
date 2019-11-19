@@ -60,45 +60,45 @@ public class ViewAll extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if (btn_state[finalI] == false){
-                        imageView.setImageResource(R.drawable.w_8);
+                        imageView.setImageResource(R.drawable.final9);
                         btn_state[finalI] = true;
                     }
                     else{
                         switch (finalI){
                             case 0:
-                                imageView.setImageResource(R.drawable.w_0);
+                                imageView.setImageResource(R.drawable.final1);
                                 btn_state[finalI] = false;
                                 break;
                             case 1:
-                                imageView.setImageResource(R.drawable.w_1);
+                                imageView.setImageResource(R.drawable.final2);
                                 btn_state[finalI] = false;
                                 break;
                             case 2:
-                                imageView.setImageResource(R.drawable.w_2);
+                                imageView.setImageResource(R.drawable.final3);
                                 btn_state[finalI] = false;
                                 break;
                             case 3:
-                                imageView.setImageResource(R.drawable.w_3);
+                                imageView.setImageResource(R.drawable.final4);
                                 btn_state[finalI] = false;
                                 break;
                             case 4:
-                                imageView.setImageResource(R.drawable.w_4);
+                                imageView.setImageResource(R.drawable.final5);
                                 btn_state[finalI] = false;
                                 break;
                             case 5:
-                                imageView.setImageResource(R.drawable.w_5);
+                                imageView.setImageResource(R.drawable.final6);
                                 btn_state[finalI] = false;
                                 break;
                             case 6:
-                                imageView.setImageResource(R.drawable.w_6);
+                                imageView.setImageResource(R.drawable.final7);
                                 btn_state[finalI] = false;
                                 break;
                             case 7:
-                                imageView.setImageResource(R.drawable.w_7);
+                                imageView.setImageResource(R.drawable.final8);
                                 btn_state[finalI] = false;
                                 break;
                             case 8:
-                                imageView.setImageResource(R.drawable.w_8);
+                                imageView.setImageResource(R.drawable.final9);
                                 btn_state[finalI] = false;
                                 break;
 

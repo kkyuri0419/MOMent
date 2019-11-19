@@ -14,7 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 
 public class Adapter extends PagerAdapter {
 
-    private Integer[] images = {R.drawable.w_0,R.drawable.w_1,R.drawable.w_2,R.drawable.w_3,R.drawable.w_4,R.drawable.w_5,R.drawable.w_6,R.drawable.w_7,R.drawable.w_8};
+    private Integer[] images = {R.drawable.final1,R.drawable.final2,R.drawable.final3,R.drawable.final4,R.drawable.final5,R.drawable.final6,R.drawable.final7,R.drawable.final8,R.drawable.final9};
     private LayoutInflater layoutInflater;
     private Context context;
 
