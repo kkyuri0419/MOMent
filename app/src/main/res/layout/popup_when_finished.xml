@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="250dp"
+        android:layout_height="300dp"
+        android:gravity="center_horizontal"
+        android:padding="15dp"
+        android:background="@color/ala_white">
+
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/profile" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView10"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="20개의 대화카드가\n모두 제공되었습니다.\n\n계속하시겠습니까 ?"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/textView23"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/yescontinue"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_marginTop="0.5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/mainPink"
+                android:fontFamily="@font/komacona"
+                android:text="네,\n계속할래요"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/nofinish"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_marginTop="0.5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/mainPink"
+                android:fontFamily="@font/komacona"
+                android:text="아니요,\n끝낼래요"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</LinearLayout>

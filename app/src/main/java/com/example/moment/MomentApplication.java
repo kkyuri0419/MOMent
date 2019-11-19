@@ -8,6 +8,7 @@ import com.example.moment.helper.DBhelper;
 public class MomentApplication extends Application {
     public MediaRecorder mediaRecorder;
     public DBhelper dBhelper;
+    public boolean isAudio=false;
 
     @Override
     public void onCreate() {

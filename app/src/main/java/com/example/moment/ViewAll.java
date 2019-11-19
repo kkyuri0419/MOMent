@@ -29,7 +29,6 @@ public class ViewAll extends AppCompatActivity {
     boolean[] btn_state = {false,false,false,false,false,false,false,false};
     public String pathSave = "";
     private MomentApplication mApp;
-    public boolean isAudio = false;
     final int REQUEST_PERMISSION_CODE = 1000;
 
 
@@ -60,45 +59,45 @@ public class ViewAll extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if (btn_state[finalI] == false){
-                        imageView.setImageResource(R.drawable.final9);
+                        imageView.setImageResource(R.drawable.card_back);
                         btn_state[finalI] = true;
                     }
                     else{
                         switch (finalI){
                             case 0:
-                                imageView.setImageResource(R.drawable.final1);
+                                imageView.setImageResource(R.drawable.final0);
                                 btn_state[finalI] = false;
                                 break;
                             case 1:
-                                imageView.setImageResource(R.drawable.final2);
+                                imageView.setImageResource(R.drawable.final1);
                                 btn_state[finalI] = false;
                                 break;
                             case 2:
-                                imageView.setImageResource(R.drawable.final3);
+                                imageView.setImageResource(R.drawable.final2);
                                 btn_state[finalI] = false;
                                 break;
                             case 3:
-                                imageView.setImageResource(R.drawable.final4);
+                                imageView.setImageResource(R.drawable.final3);
                                 btn_state[finalI] = false;
                                 break;
                             case 4:
-                                imageView.setImageResource(R.drawable.final5);
+                                imageView.setImageResource(R.drawable.final4);
                                 btn_state[finalI] = false;
                                 break;
                             case 5:
-                                imageView.setImageResource(R.drawable.final6);
+                                imageView.setImageResource(R.drawable.final5);
                                 btn_state[finalI] = false;
                                 break;
                             case 6:
-                                imageView.setImageResource(R.drawable.final7);
+                                imageView.setImageResource(R.drawable.final6);
                                 btn_state[finalI] = false;
                                 break;
                             case 7:
-                                imageView.setImageResource(R.drawable.final8);
+                                imageView.setImageResource(R.drawable.final7);
                                 btn_state[finalI] = false;
                                 break;
                             case 8:
-                                imageView.setImageResource(R.drawable.final9);
+                                imageView.setImageResource(R.drawable.final8);
                                 btn_state[finalI] = false;
                                 break;
 
@@ -209,7 +208,7 @@ public class ViewAll extends AppCompatActivity {
 //                        audioYesBtn.setEnabled(false);
 //                        audioNoBtn.setEnabled(false);
 
-                    isAudio = true;
+                    mApp.isAudio = true;
                     startToast("녹음이 시작됩니다.");
                     startCardActivity();
                     alertDialog.dismiss();

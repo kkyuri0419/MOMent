@@ -6,9 +6,12 @@
     android:layout_height="match_parent">
 
 
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -16,23 +19,45 @@
             android:background="#FFFFFF"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tutorialTextView"
+
+            <LinearLayout
+                android:id="@+id/imageViewtuto"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:gravity="bottom|center_horizontal"
-                android:lineSpacingExtra="5dp"
-                android:text="튜토리얼"
-                android:fontFamily="@font/komacona"
-                android:textColor="#E4837C"
-                android:textSize="30sp" />
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tutorialTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_weight="9"
+                    android:lineSpacingExtra="5dp"
+                    android:gravity="center"
+                    android:text="    튜토리얼"
+                    android:fontFamily="@font/komacona"
+                    android:textColor="@color/mainPink"
+                    android:textSize="40sp" />
+
+                <ImageButton
+                    android:id="@+id/tutorialclosebtn"
+                    android:layout_width="10dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="0.5"
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/close_tutorial"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:background="@android:color/transparent"/>
+
+            </LinearLayout>
+
 
             <ImageView
+                android:layout_below="@id/imageViewtuto"
                 android:id="@+id/imageView1"
-                android:layout_width="wrap_content"
-                android:layout_height="300dp"
-                android:layout_below="@id/tutorialTextView"
-                app:srcCompat="@drawable/first_ala" />
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:srcCompat="@drawable/ala1" />
 
             <TextView
                 android:id="@+id/textView1"
@@ -49,17 +74,20 @@
                 android:textColor="#000000"
                 android:textSize="14sp" />
 
-            <ImageView
-                android:id="@+id/verticalLine1"
-                android:layout_below="@id/textView1"
-                style="@style/verticalLine" />
+
+
+
+
+
+
+
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:layout_below="@id/verticalLine1"
-                app:srcCompat="@drawable/two_ala" />
+                android:layout_below="@id/textView1"
+                app:srcCompat="@drawable/ala2" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -71,32 +99,29 @@
                 android:paddingStart="30dp"
                 android:paddingTop="10dp"
                 android:paddingEnd="30dp"
+                android:layout_marginBottom="50dp"
                 android:fontFamily="@font/komacona"
-                android:text="대화카드에는 총 9개의 대화주제가 있어요.  \n서로의 속마음을 엿볼 수 있는 신박한  카드들로 구성되어있답니다.  모멘터들끼리 번갈아가며 상대에게 질문할 카드를 뽑고 대화를 나누시면 됩니다.  "
+                android:text="대화카드에는 총 9개의 대화주제가 있어요.  \n서로의 속마음을 엿볼 수 있는 신박한  카드들로 \n구성되어있답니다.  모멘터들끼리 번갈아가며 \n상대에게 질문할 카드를 뽑고 대화를 나누시면 됩니다.  "
                 android:textColor="#000000"
                 android:textSize="14sp" />
 
-            <ImageView
-                android:id="@+id/verticalLine2"
-                android:layout_below="@id/textView2"
-                style="@style/verticalLine" />
+
+
+
+
+
+
 
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="170dp"
-                android:layout_height="200dp"
-                android:layout_below="@id/verticalLine2"
-                android:layout_marginLeft="20dp"
-                app:srcCompat="@drawable/like_ala" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="170dp"
-                android:layout_height="200dp"
-                android:layout_below="@id/verticalLine2"
-                android:layout_alignEnd="@id/textView3"
-                app:srcCompat="@drawable/hate_ala" />
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@id/textView2"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                app:srcCompat="@drawable/ala3" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -110,63 +135,94 @@
                 android:paddingTop="10dp"
                 android:paddingEnd="30dp"
                 android:fontFamily="@font/komacona"
-                android:text="대화를 나눈 후,\n 질문이 마음에 들었다면 좋아요,\n별로였다면 싫어요 버튼을 눌러주세요.  \n버튼을 누르시면 다음 질문카드가 등장한답니다.\n축적된 데이터는 더 나은 대화카드를 구성하는데 사용됩니다. "
-                android:textColor="#000000" />
+                android:text="대화를 나눈 후\n 질문이 마음에 들었다면 좋아요,\n별로였다면 싫어요 버튼을 눌러주세요. \n버튼을 누르시면 다음 질문카드가 등장한답니다.\n축적된 데이터는 더 나은 대화카드를 구성하는데\n사용됩니다. "
+                android:textColor="#000000"
+                android:layout_marginBottom="50dp"/>
+
+
+
+
+
+
+
 
             <ImageView
-                android:id="@+id/verticalLine3"
+                android:id="@+id/imageView8888"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
                 android:layout_below="@id/textView3"
-                style="@style/verticalLine" />
+                app:srcCompat="@drawable/ala4"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"/>
+
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_below="@id/verticalLine3"
+                android:layout_height="170dp"
+                android:layout_below="@id/imageView8888"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="10dp"
                 android:paddingStart="30dp"
-                android:paddingTop="10dp"
                 android:paddingEnd="30dp"
                 android:fontFamily="@font/komacona"
-                android:text="\n그 밖에도, \n랜덤으로 등장하는 다양한 미션카드가 준비되어있으니 모멘터들끼리 힘을 합쳐 미션을 완수해주세요!\n\n모든 대화를 마친 후, 소중한 순간들을 다이어리에 기록해보세요  대화 녹음 역시 다이어리에서 확인할 수 있답니다!       "
+                android:text="\n그 밖에도 랜덤으로 등장하는 다양한 미션카드가\n 준비되어있으니 모멘터들끼리 힘을 합쳐\n 미션을 완수해주세요!"
                 android:textColor="#000000" />
 
+
+
+
+
+
+
+
+
+
+
+
             <ImageView
-                android:id="@+id/verticalLine4"
+                android:id="@+id/imageView88"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
                 android:layout_below="@id/textView4"
-                style="@style/verticalLine" />
+                app:srcCompat="@drawable/ala5" />
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_below="@id/verticalLine4"
-                android:gravity="center"
+                android:layout_height="130dp"
+                android:layout_below="@id/imageView88"
+                android:gravity="center_horizontal"
                 android:lineSpacingExtra="10dp"
                 android:paddingStart="30dp"
-                android:paddingTop="10dp"
                 android:paddingEnd="30dp"
                 android:fontFamily="@font/komacona"
                 android:text="모든 대화를 마친 후, \n소중한 순간들을 다이어리에 기록해보세요.\n대화 녹음 역시 다이어리에서 확인할 수 있답니다!       "
                 android:textColor="#000000" />
 
-            <ImageView
-                android:id="@+id/verticalLine"
-                android:layout_below="@id/textView5"
-                style="@style/verticalLine" />
+
+
+
+
+
+
+
+
+
+
+
 
             <ImageView
                 android:id="@+id/imageView6"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_below="@id/verticalLine"
-                app:srcCompat="@drawable/last_ala" />
+                android:layout_height="200dp"
+                android:layout_below="@id/textView5"
+                app:srcCompat="@drawable/ala6" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/textView7"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="50dp"
                 android:layout_below="@id/imageView6"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="10dp"
@@ -174,14 +230,20 @@
                 android:paddingTop="10dp"
                 android:paddingEnd="30dp"
                 android:fontFamily="@font/komacona"
-                android:text='\"여러분들의 소중한 순간이 지금 시작됩니다.\"'
+                android:text="여러분들의 소중한 순간이 지금 시작됩니다."
                 android:textColor="#000000" />
+
+
+
+
+
+
 
             <Button
                 android:id="@+id/startCardButton"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textView6"
+                android:layout_below="@id/textView7"
                 android:layout_marginStart="80dp"
                 android:layout_marginBottom="50dp"
                 android:background="@drawable/pink_rounded_button"

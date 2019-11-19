@@ -18,6 +18,7 @@ public class MainActivityTutorial extends AppCompatActivity {
         setContentView(R.layout.activity_main_tutorial);
 
         findViewById(R.id.startCardButton).setOnClickListener(onClickListener);
+        findViewById(R.id.tutorialclosebtn).setOnClickListener(onClickListener);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -26,6 +27,9 @@ public class MainActivityTutorial extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.startCardButton:
 //                    startToast("튜토리얼이 시작됩니다");
+                    startUserProfileActivity();
+                    break;
+                case R.id.tutorialclosebtn:
                     startUserProfileActivity();
                     break;
 

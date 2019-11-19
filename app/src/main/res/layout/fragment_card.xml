@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools"
     android:id="@+id/cardBackground"
@@ -10,15 +11,17 @@
     android:padding="25dp">
 <!--    뒷 배경색과 categotyText & textcolor 는 정해진 카테고리에-->
 
+
     <ImageButton
-        android:id="@+id/audioStopbtn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:id="@+id/closebtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="end"
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:layout_gravity="end"
-        />
+        app:srcCompat="@drawable/close_tutorial"
+        android:onClick="close_popup"/>
 
     <LinearLayout
 
@@ -29,17 +32,42 @@
         android:orientation="vertical">
         <!--        android:fontFamily=""-->
 
-        <TextView
-            android:id="@+id/categoryText"
+        <LinearLayout
+            android:id="@+id/firstlayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.5"
-            android:fontFamily="@font/jejumyeongjo"
             android:gravity="center"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            tool:text="[주제]"
-            android:text="[주제]"/>
+            android:padding="20dp">
+
+
+            <TextView
+                android:layout_marginStart="30dp"
+                android:id="@+id/categoryText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/jejumyeongjo"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_weight="0.8"
+                android:textSize="25sp"
+                tool:text="[주제]"
+                android:text="    [주제]"/>
+
+            <ImageButton
+
+                android:id="@+id/audioStopbtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="end"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/audio_off" />
+
+
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/question"
