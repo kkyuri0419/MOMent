@@ -17,7 +17,8 @@
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:layout_gravity="end"/>
+        android:layout_gravity="end"
+        />
 
     <LinearLayout
 
@@ -47,11 +48,10 @@
             android:layout_weight="7"
             android:fontFamily="@font/jejumyeongjo"
             android:gravity="center"
-
             android:textColor="@color/black"
             android:textSize="20sp"
             tool:text="질문~?"
-            android:text="질문~?\n 다음 질문으로 갈 버튼 필요.\n 종료버튼/녹음종료 필요.\n 녹음이 되고 있다는 효과 필요? \n다이어리 바로 가기 버튼 필요??"/>
+            android:text="질문 자리"/>
 
         <LinearLayout
             android:id="@+id/like_unlike"

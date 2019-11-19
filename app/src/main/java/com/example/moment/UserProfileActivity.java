@@ -56,7 +56,7 @@ public class UserProfileActivity extends AppCompatActivity {
     };
 
     private void startCategoryActivity(){
-        Intent intent = new Intent(this, CategoryActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="0.2">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:gravity="center"
+            android:fontFamily="@font/komacona"
+            android:text="원하는 대화주제를 선택해보세요!"
+            android:textSize="16dp"/>
+
+    </LinearLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/mainGrid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:paddingStart="70dp"
+        android:paddingEnd="70dp"
+        app:alignmentMode="alignMargins"
+        app:columnCount="3"
+        app:columnOrderPreserved="false"
+        app:rowCount="3">
+
+        <ImageView
+            android:id="@+id/cardimage0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingBottom="10dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:srcCompat="@drawable/w_0" />
+
+        <ImageView
+            android:id="@+id/cardimage1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingBottom="10dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:srcCompat="@drawable/w_1" />
+
+        <ImageView
+            android:id="@+id/cardimage2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingBottom="10dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:srcCompat="@drawable/w_2" />
+
+        <ImageView
+            android:id="@+id/cardimage3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingBottom="10dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:srcCompat="@drawable/w_3" />
+
+        <ImageView
+            android:id="@+id/cardimage4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingBottom="10dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:srcCompat="@drawable/w_4" />
+
+        <ImageView
+            android:id="@+id/cardimage5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingBottom="10dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:srcCompat="@drawable/w_5" />
+
+        <ImageView
+            android:id="@+id/cardimage6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingBottom="10dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:srcCompat="@drawable/w_6" />
+
+        <ImageView
+            android:id="@+id/cardimage7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingBottom="10dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:srcCompat="@drawable/w_7" />
+
+        <ImageView
+            android:id="@+id/cardimage8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingBottom="10dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:srcCompat="@drawable/w_8" />
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="0.15"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/startCButton"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/round"
+            android:backgroundTint="#55FFFFFF"
+            android:fontFamily="@font/komacona"
+            android:text="선택하기"
+            android:textColor="#000000"
+            android:onClick="btn_showPopup"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="0.08">
+
+        <!--        레이아웃에서 gravity를 맞추면 안에 내용물이 움직임-->
+
+
+        <ImageButton
+            android:id="@+id/settingButton"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/setting"
+            android:background="@android:color/transparent" />
+
+        <ImageButton
+            android:id="@+id/diaryButton"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="10dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/diary"
+            android:background="@android:color/transparent" />
+    </LinearLayout>
+</LinearLayout>

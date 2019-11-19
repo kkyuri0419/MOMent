@@ -1,111 +1,114 @@
 package com.example.moment;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.gridlayout.widget.GridLayout;
-
 import android.Manifest;
+import android.animation.ArgbEvaluator;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.media.MediaPlayer;
 import android.media.MediaRecorder;
+import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
-import android.os.Bundle;
-//import android.widget.GridLayout;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.UUID;
 
-public class ViewAllActivity extends AppCompatActivity {
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.gridlayout.widget.GridLayout;
+import androidx.viewpager.widget.ViewPager;
 
-    boolean[] btn_state = {false,false,false,false,false,false,false,false};
+public class ViewAll extends AppCompatActivity {
+
     GridLayout mainGrid;
+    boolean[] btn_state = {false,false,false,false,false,false,false,false};
     public String pathSave = "";
-    public MediaRecorder mediaRecorder;
+    private MomentApplication mApp;
     public boolean isAudio = false;
     final int REQUEST_PERMISSION_CODE = 1000;
-    //    public MediaPlayer mediaPlayer;
 
+
+    ViewPager viewPager;
+    ArgbEvaluator argbEvaluator = new ArgbEvaluator();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_all);
-
+        setContentView(R.layout.view_all_card);
+        mApp = (MomentApplication) getApplication();
         mainGrid = (GridLayout) findViewById(R.id.mainGrid);
-
-
-        findViewById(R.id.startButton).setOnClickListener(onClickListener);
+        findViewById(R.id.startCButton).setOnClickListener(onClickListener);
         findViewById(R.id.settingButton).setOnClickListener(onClickListener);
         findViewById(R.id.diaryButton).setOnClickListener(onClickListener);
 
-        //set Event
+
+
         setToggleEvent(mainGrid);
 
     }
 
-    private void setToggleEvent(GridLayout mainGrid) { //Loop all child item of mainGrid
+    private void setToggleEvent(GridLayout mainGrid) {
         for(int i = 0; i<mainGrid.getChildCount(); i++){
-            final CardView cardView = (CardView)mainGrid.getChildAt(i);
+            final ImageView imageView = (ImageView)mainGrid.getChildAt(i);
             final int finalI = i;
-            cardView.setOnClickListener(new View.OnClickListener() {
+            imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    if(cardView.getCardBackgroundColor().getDefaultColor() != -1){
                     if (btn_state[finalI] == false){
-                        cardView.setCardBackgroundColor(Color.parseColor("#FFAFADAD")); //눌러져있지 않은 상태이면 회색으로 바꾼다.
+                        imageView.setImageResource(R.drawable.w_8);
                         btn_state[finalI] = true;
-//                        Toast.makeText(MainActivity.this, "selected" , Toast.LENGTH_SHORT).show();
-                    }else{
-//                        Toast.makeText(ViewAllActivity.this, "color_reset", Toast.LENGTH_SHORT).show();
-                        btn_state[finalI] = false;
+                    }
+                    else{
                         switch (finalI){
                             case 0:
-                                cardView.setCardBackgroundColor(Color.parseColor("#2E4E57"));
+                                imageView.setImageResource(R.drawable.w_0);
+                                btn_state[finalI] = false;
                                 break;
                             case 1:
-                                cardView.setCardBackgroundColor(Color.parseColor("#CBF3F2"));
+                                imageView.setImageResource(R.drawable.w_1);
+                                btn_state[finalI] = false;
                                 break;
                             case 2:
-                                cardView.setCardBackgroundColor(Color.parseColor("FCA816"));
+                                imageView.setImageResource(R.drawable.w_2);
+                                btn_state[finalI] = false;
                                 break;
                             case 3:
-                                cardView.setCardBackgroundColor(Color.parseColor("#3980B6"));
+                                imageView.setImageResource(R.drawable.w_3);
+                                btn_state[finalI] = false;
                                 break;
                             case 4:
-                                cardView.setCardBackgroundColor(Color.parseColor("#ECCFD1"));
+                                imageView.setImageResource(R.drawable.w_4);
+                                btn_state[finalI] = false;
                                 break;
                             case 5:
-                                cardView.setCardBackgroundColor(Color.parseColor("#37155F"));
+                                imageView.setImageResource(R.drawable.w_5);
+                                btn_state[finalI] = false;
                                 break;
                             case 6:
-                                cardView.setCardBackgroundColor(Color.parseColor("#E4837C"));
+                                imageView.setImageResource(R.drawable.w_6);
+                                btn_state[finalI] = false;
                                 break;
                             case 7:
-                                cardView.setCardBackgroundColor(Color.parseColor("#9BBDBA"));
+                                imageView.setImageResource(R.drawable.w_7);
+                                btn_state[finalI] = false;
                                 break;
                             case 8:
-                                cardView.setCardBackgroundColor(Color.parseColor("#FBEA90"));
+                                imageView.setImageResource(R.drawable.w_8);
+                                btn_state[finalI] = false;
                                 break;
+
                         }
 
                     }
                 }
             });
         }
-
     }
-
-
 
     View.OnClickListener onClickListener = new View.OnClickListener(){
 
@@ -113,7 +116,7 @@ public class ViewAllActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.startButton:
+                case R.id.startCButton:
                     showPopup();
                     break;
                 case R.id.settingButton:
@@ -151,7 +154,9 @@ public class ViewAllActivity extends AppCompatActivity {
 
 
     private void showPopup() {
-        final AlertDialog.Builder alert = new AlertDialog.Builder(ViewAllActivity.this);
+
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(ViewAll.this);
         View mView = getLayoutInflater().inflate(R.layout.popup_audio_record,null);
 
         final Button audioYesBtn = (Button)mView.findViewById(R.id.audioYesBtn);
@@ -186,34 +191,34 @@ public class ViewAllActivity extends AppCompatActivity {
         });
 
 
-            audioYesBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+        audioYesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-                    if (checkPermissionFromDevice()) {
-                        pathSave = Environment.getExternalStorageDirectory().getAbsolutePath() + "/"
-                                + UUID.randomUUID().toString() + "_audio_record.3gp";
-                        setupMediaRecorder();
-                        try {
-                            mediaRecorder.prepare();
-                            mediaRecorder.start();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+                if (checkPermissionFromDevice()) {
+                    pathSave = Environment.getExternalStorageDirectory().getAbsolutePath() + "/"
+                            + UUID.randomUUID().toString() + "_audio_record.3gp";
+                    setupMediaRecorder();
+                    try {
+                        mApp.mediaRecorder.prepare();
+                        mApp.mediaRecorder.start();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
 //                        audioYesBtn.setEnabled(false);
 //                        audioNoBtn.setEnabled(false);
 
-                        isAudio = true;
-                        startToast("녹음이 시작됩니다.");
-                        startCardActivity();
-                        alertDialog.dismiss();
-                    }else{
-                        requestPermission();
-                    }
-
+                    isAudio = true;
+                    startToast("녹음이 시작됩니다.");
+                    startCardActivity();
+                    alertDialog.dismiss();
+                }else{
+                    requestPermission();
                 }
-            });
+
+            }
+        });
 
 
         alertDialog.show();
@@ -221,11 +226,11 @@ public class ViewAllActivity extends AppCompatActivity {
     }
 
     private void setupMediaRecorder() {
-        mediaRecorder = new MediaRecorder();
-        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        mediaRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
-        mediaRecorder.setOutputFile(pathSave);
+        mApp.mediaRecorder = new MediaRecorder();
+        mApp.mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        mApp.mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+        mApp.mediaRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
+        mApp.mediaRecorder.setOutputFile(pathSave);
     }
 
     private boolean checkPermissionFromDevice() {
@@ -258,45 +263,4 @@ public class ViewAllActivity extends AppCompatActivity {
 
 
 
-
-
-
-//    public void btn_showPopup (View view){
-//
-//        final AlertDialog.Builder alert = new AlertDialog.Builder(ViewAllActivity.this);
-//        View mView = getLayoutInflater().inflate(R.layout.popup_audio_record,null);
-//
-//        Button audioYesBtn = (Button)mView.findViewById(R.id.audioYesBtn);
-//        Button audioNoBtn = (Button)mView.findViewById(R.id.audioNoBtn);
-//
-//        alert.setView((mView));
-//
-//        final AlertDialog alertDialog = alert.create();
-//        alertDialog.setCanceledOnTouchOutside(false);
-//
-//        audioYesBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                //오디오 기능 ON
-//                //카드화면으로 바로가기
-//                alertDialog.dismiss();
-//
-//            }
-//        });
-//
-//        audioNoBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                //카드화면으로 바로가기
-//                alertDialog.dismiss();
-//            }
-//        });
-//
-//        alertDialog.show();
-//
-//
-//    }
-//
 }
