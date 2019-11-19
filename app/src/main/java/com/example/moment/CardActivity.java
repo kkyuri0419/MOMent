@@ -1,25 +1,18 @@
 package com.example.moment;
 
 import android.Manifest;
-import android.app.Application;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.moment.adapter.ViewPagerAdapter;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,15 +20,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.viewpager.widget.ViewPager;
 
 public class CardActivity extends AppCompatActivity {
 
@@ -52,7 +42,7 @@ public class CardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_card);
+        setContentView(R.layout.activity_twenty_card);
 
         findViewById(R.id.closebtn).setOnClickListener(onClickListener);
         findViewById(R.id.audioStopbtn).setOnClickListener(onClickListener);

@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.category_base);
+        setContentView(R.layout.activity_category_base);
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
 
