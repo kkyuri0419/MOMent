@@ -3,116 +3,137 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools"
-    android:id="@+id/cardBackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:backgroundTint="@color/color0"
-    android:padding="25dp">
-<!--    뒷 배경색과 categotyText & textcolor 는 정해진 카테고리에-->
-
-
-    <ImageButton
-        android:id="@+id/closebtn"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_gravity="end"
-        android:adjustViewBounds="true"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/close_tutorial"
-        android:onClick="close_popup"/>
+    android:id="@+id/backgroundlayouyColor">
 
     <LinearLayout
-
-        android:id="@+id/rootview"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tool="http://schemas.android.com/tools"
+        android:id="@+id/cardBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/round"
-        android:orientation="vertical">
-        <!--        android:fontFamily=""-->
+        android:orientation="vertical"
+        >
+<!--        android:paddingTop="30dp"-->
+<!--        android:paddingStart="45dp"-->
+<!--        android:paddingEnd="45dp"-->
+<!--        android:paddingBottom="45dp">-->
+        <!--    뒷 배경색과 categotyText & textcolor 는 정해진 카테고리에-->
+
+
+        <ImageButton
+            android:id="@+id/closebtn"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="end"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/close_tutorial"
+            android:onClick="close_popup"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"/>
 
         <LinearLayout
-            android:id="@+id/firstlayout"
+
+            android:id="@+id/rootview"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.5"
-            android:gravity="center"
-            android:padding="20dp">
+            android:layout_height="match_parent"
+            android:background="@drawable/round"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="45dp"
+            android:layout_marginBottom="45dp"
+            android:layout_marginStart="45dp"
+            >
+            <!--        android:fontFamily=""-->
+
+            <LinearLayout
+                android:id="@+id/firstlayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.7"
+                android:gravity="center"
+                android:padding="20dp">
+
+
+                <TextView
+                    android:layout_marginStart="30dp"
+                    android:id="@+id/categoryText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/yeonaesidae"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/black"
+                    android:layout_weight="0.8"
+                    android:textSize="30sp"
+                    tool:text="[주제]"
+                    android:text="    [주제]"/>
+
+                <ImageButton
+
+                    android:id="@+id/audioStopbtn"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="end"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/audio_off" />
+
+
+            </LinearLayout>
 
 
             <TextView
-                android:layout_marginStart="30dp"
-                android:id="@+id/categoryText"
+                android:id="@+id/question"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/jejumyeongjo"
+                android:layout_height="0dp"
+                android:layout_weight="7"
+                android:fontFamily="@font/komacona"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:layout_weight="0.8"
-                android:textSize="25sp"
-                tool:text="[주제]"
-                android:text="    [주제]"/>
+                android:textSize="20sp"
+                tool:text="질문~?"
+                android:text="질문 자리"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"/>
 
-            <ImageButton
+            <LinearLayout
+                android:id="@+id/like_unlike"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1.5"
+                android:orientation="horizontal"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp">
 
-                android:id="@+id/audioStopbtn"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="end"
-                android:adjustViewBounds="true"
-                android:background="@android:color/transparent"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/audio_off" />
 
+                <ImageView
+                    android:id="@+id/like"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/like_ala"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/hate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/hate_ala"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:layout_weight="1"/>
+
+
+            </LinearLayout>
 
         </LinearLayout>
-
-
-        <TextView
-            android:id="@+id/question"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="7"
-            android:fontFamily="@font/jejumyeongjo"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            tool:text="질문~?"
-            android:text="질문 자리"/>
-
-        <LinearLayout
-            android:id="@+id/like_unlike"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginBottom="20dp"
-            android:layout_weight="1.5"
-            android:orientation="horizontal"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp">
-
-            <ImageButton
-                android:id="@+id/like"
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:layout_weight="5"
-                android:adjustViewBounds="true"
-
-                android:backgroundTint="#FFFFFF"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/like_ala" />
-
-            <ImageButton
-                android:id="@+id/hate"
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:layout_weight="5"
-                android:adjustViewBounds="true"
-
-                android:backgroundTint="#FFFFFF"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/hate_ala" />
-        </LinearLayout>
-
     </LinearLayout>
+
 </LinearLayout>
