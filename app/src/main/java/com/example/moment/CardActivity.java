@@ -36,7 +36,6 @@ public class CardActivity extends AppCompatActivity {
     int count =0;
 
 
-
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -253,10 +252,14 @@ public class CardActivity extends AppCompatActivity {
 
     private void throwcard(){
         int randomvalue = (int)(Math.random()*80+0);
-        CardObject cardObject =mApp.dBhelper.selectcard(0);
+        CardObject cardObject =mApp.dBhelper.selectcard(randomvalue);
+
+        String[] category_names = getResources().getStringArray(R.array.category_names);
 
         TextView categorytext = findViewById(R.id.categoryText);
-        categorytext.setText(cardObject.category);
+        categorytext.setText(category_names[cardObject.category]);
+
+
 
         TextView contenttext = findViewById(R.id.question);
         contenttext.setText(cardObject.content);

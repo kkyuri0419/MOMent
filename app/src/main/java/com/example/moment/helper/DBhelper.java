@@ -21,12 +21,15 @@ public class DBhelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE card ("+
-                "c_index	INTEGER,"+
-                "content	TEXT,"+
-                "category	INTEGER,"+
-                "memberexception	TEXT,"+
-                "PRIMARY KEY(c_index))");
+        try {
+            db.execSQL("CREATE TABLE card (" +
+                    "c_index	INTEGER," +
+                    "content	TEXT," +
+                    "category	INTEGER," +
+                    "memberexception	TEXT," +
+                    "PRIMARY KEY(c_index))");
+        }catch (android.database.sqlite.SQLiteException e){
+        }
 
     }
 
