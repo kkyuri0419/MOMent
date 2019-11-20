@@ -45,6 +45,8 @@
 
         <activity android:name=".MainActivity"/>
         <activity android:name=".ViewAll"/>
+        <activity android:name="DiaryList"/>
+        <activity android:name=".DiaryMakeNew"/>
     </application>
 
 </manifest>

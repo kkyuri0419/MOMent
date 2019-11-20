@@ -38,6 +38,7 @@ public class CategoryActivity extends AppCompatActivity {
                     startUserProfileActivity();
                     break;
                 case R.id.diaryButton:
+                    startDiaryList();
                     break;
 
             }
@@ -51,6 +52,11 @@ public class CategoryActivity extends AppCompatActivity {
 
     private void startViewAll() {
         Intent intent = new Intent(this, ViewAllActivity.class);
+        startActivity(intent);
+    }
+
+    private void startDiaryList() {
+        Intent intent = new Intent(this, DiaryList.class);
         startActivity(intent);
     }
 }

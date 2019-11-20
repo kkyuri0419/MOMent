@@ -122,6 +122,7 @@ public class ViewAll extends AppCompatActivity {
                     startUserProfileActivity();
                     break;
                 case R.id.diaryButton:
+                    startDiaryList();
                     break;
             }
         }
@@ -260,6 +261,10 @@ public class ViewAll extends AppCompatActivity {
         },REQUEST_PERMISSION_CODE);
     }
 
+    private void startDiaryList() {
+        Intent intent = new Intent(this, DiaryList.class);
+        startActivity(intent);
+    }
 
 
 }

@@ -12,13 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-public class Adapter extends PagerAdapter {
+public class BigCardAdapter extends PagerAdapter {
 
-    private Integer[] images = {R.drawable.final0,R.drawable.final1,R.drawable.final2,R.drawable.final3,R.drawable.final4,R.drawable.final5,R.drawable.final6,R.drawable.final7,R.drawable.final8};
+    private Integer[] images = {R.drawable.cate_0,R.drawable.cate_1,R.drawable.cate_2,R.drawable.cate_3,R.drawable.cate_4,R.drawable.cate_5,R.drawable.cate_6,R.drawable.cate_7,R.drawable.cate_8};
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public Adapter(Context context) {
+    public BigCardAdapter(Context context) {
         this.context = context;
     }
 
@@ -37,7 +37,7 @@ public class Adapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.fragment_big_card,null);
+        View view = layoutInflater.inflate(R.layout.old_fragment_big_card,null);
         ImageView imageView = (ImageView) view.findViewById(R.id.imageview);
         imageView.setImageResource(images[position]);
 

@@ -50,7 +50,7 @@ public class DBhelper extends SQLiteOpenHelper {
         }
         return  null;
     }
-    public ArrayList<DiaryObject> selectdiary (int idx){
+    public ArrayList<DiaryObject> selectdiary (){
         Cursor cursor=getReadableDatabase().query("diary", null, null, null,null,null,null);
         ArrayList<DiaryObject> diaryObjects = new ArrayList<>();
         while (cursor.moveToNext()) {

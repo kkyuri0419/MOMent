@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.moment.adapter.Adapter;
+import com.example.moment.adapter.BigCardAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -18,13 +18,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category_base);
+        setContentView(R.layout.activity_big_card_category);
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
 
-        Adapter adapter = new Adapter(this);
+        BigCardAdapter bigCardAdapter = new BigCardAdapter(this);
 
-        viewPager.setAdapter(adapter);
+        viewPager.setAdapter(bigCardAdapter);
 
         findViewById(R.id.startButton).setOnClickListener(onClickListener);
         findViewById(R.id.settingButton).setOnClickListener(onClickListener);
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
                     startUserProfileActivity();
                     break;
                 case R.id.diaryButton:
+                    startDiaryList();
                     break;
 
             }
@@ -57,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void startViewAll() {
         Intent intent = new Intent(this, ViewAll.class);
+        startActivity(intent);
+    }
+
+    private void startDiaryList() {
+        Intent intent = new Intent(this, DiaryList.class);
         startActivity(intent);
     }
 }

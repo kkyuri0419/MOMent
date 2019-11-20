@@ -16,7 +16,6 @@
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_marginTop="50dp"
-            android:layout_marginEnd="20dp"
             android:gravity="center"
             android:fontFamily="@font/komacona"
             android:text="옆으로 넘기면서\n대화주제를 둘러보세요 !"

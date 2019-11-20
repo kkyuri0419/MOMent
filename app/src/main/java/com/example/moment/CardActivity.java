@@ -270,55 +270,46 @@ public class CardActivity extends AppCompatActivity {
 
         switch (cardObject.category) {
             case 0:
-                startToast("백그라운드가 0으로 변경됩니다.");
                 findViewById(R.id.backgroundlayouyColor).setBackgroundColor(getResources().getColor(R.color.color0));
                 findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_0);
                 categorytext.setTextColor(getResources().getColor(R.color.color0));
                 break;
             case 1:
-                startToast("백그라운드가 1로 변경됩니다.");
                 findViewById(R.id.backgroundlayouyColor).setBackgroundColor(getResources().getColor(R.color.color1));
                 findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_1);
                 categorytext.setTextColor(getResources().getColor(R.color.color1));
                 break;
             case 2:
-                startToast("백그라운드가 2로 변경됩니다.");
                 findViewById(R.id.backgroundlayouyColor).setBackgroundColor(getResources().getColor(R.color.color2));
                 findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_2);
                 categorytext.setTextColor(getResources().getColor(R.color.color2));
                 break;
             case 3:
-                startToast("백그라운드가 3으로 변경됩니다.");
                 findViewById(R.id.backgroundlayouyColor).setBackgroundColor(getResources().getColor(R.color.color3));
                 findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_3);
                 categorytext.setTextColor(getResources().getColor(R.color.color3));
                 break;
             case 4:
-                startToast("백그라운드가 4로 변경됩니다.");
                 findViewById(R.id.backgroundlayouyColor).setBackgroundColor(getResources().getColor(R.color.color4));
                 findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_4);
                 categorytext.setTextColor(getResources().getColor(R.color.color4));
                 break;
             case 5:
-                startToast("백그라운드가 5로 변경됩니다.");
                 findViewById(R.id.backgroundlayouyColor).setBackgroundColor(getResources().getColor(R.color.color5));
                 findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_5);
                 categorytext.setTextColor(getResources().getColor(R.color.color5));
                 break;
             case 6:
-                startToast("백그라운드가 6으로 변경됩니다.");
                 findViewById(R.id.backgroundlayouyColor).setBackgroundColor(getResources().getColor(R.color.color6));
                 findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_6);
                 categorytext.setTextColor(getResources().getColor(R.color.color6));
                 break;
             case 7:
-                startToast("백그라운드가 7로변경됩니다.");
                 findViewById(R.id.backgroundlayouyColor).setBackgroundColor(getResources().getColor(R.color.color7));
                 findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_7);
                 categorytext.setTextColor(getResources().getColor(R.color.color7));
                 break;
             case 8:
-                startToast("백그라운드가 8로변경됩니다.");
                 findViewById(R.id.backgroundlayouyColor).setBackgroundColor(getResources().getColor(R.color.color8));
                 findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_8);
                 categorytext.setTextColor(getResources().getColor(R.color.color8));

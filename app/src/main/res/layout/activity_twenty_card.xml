@@ -116,19 +116,19 @@
                     android:id="@+id/like"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:srcCompat="@drawable/like_ala"
+                    app:srcCompat="@drawable/like_ala_wtext"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                    android:layout_weight="1"/>
+                    android:layout_weight="0.5"/>
 
                 <ImageView
                     android:id="@+id/hate"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:srcCompat="@drawable/hate_ala"
+                    app:srcCompat="@drawable/hate_ala_wtext"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                    android:layout_weight="1"/>
+                    android:layout_weight="0.6"/>
 
 
             </LinearLayout>
