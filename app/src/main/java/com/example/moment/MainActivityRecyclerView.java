@@ -1,30 +1,48 @@
 package com.example.moment;
 
-import android.animation.ArgbEvaluator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.moment.adapter.BigCardAdapter;
+import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivityRecyclerView extends AppCompatActivity {
 
-    ViewPager viewPager;
-    ArgbEvaluator argbEvaluator = new ArgbEvaluator();
+    RecyclerView recyclerView;
+
+    ArrayList<MainModelRecyclerView> mainModelRecyclerViews;
+    MainAdapterRecyclerView mainAdapterRecyclerView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.old_activity_big_card_category);
+        setContentView(R.layout.activity_big_card_category2);
 
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        recyclerView = findViewById(R.id.recyclerView);
 
-        BigCardAdapter bigCardAdapter = new BigCardAdapter(this);
+        Integer[] langLogo = {R.drawable.cate_0,R.drawable.cate_1,R.drawable.cate_2,R.drawable.cate_3,R.drawable.cate_4,R.drawable.cate_5,R.drawable.cate_6,R.drawable.cate_7,R.drawable.cate_8};
 
-        viewPager.setAdapter(bigCardAdapter);
+        mainModelRecyclerViews = new ArrayList<>();
+        for (int i=0; i<langLogo.length;i++){
+            MainModelRecyclerView model = new MainModelRecyclerView(langLogo[i]);
+            mainModelRecyclerViews.add(model);
+        }
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(
+                MainActivityRecyclerView.this, LinearLayoutManager.HORIZONTAL, false
+        );
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        mainAdapterRecyclerView = new MainAdapterRecyclerView(MainActivityRecyclerView.this, mainModelRecyclerViews);
+
+        recyclerView.setAdapter(mainAdapterRecyclerView);
 
         findViewById(R.id.startButton).setOnClickListener(onClickListener);
         findViewById(R.id.settingButton).setOnClickListener(onClickListener);
@@ -65,4 +83,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DiaryList.class);
         startActivity(intent);
     }
+
+
 }

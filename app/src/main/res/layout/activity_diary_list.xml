@@ -11,8 +11,9 @@ android:layout_height="match_parent">
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:text="대화기록 다이어리"
+    android:fontFamily="@font/yeonaesidae"
     android:layout_weight="1.5"
-    android:gravity="center"
+    android:gravity="center|bottom"
     android:textColor="@color/black"
     android:textSize="30sp"/>
 
@@ -20,7 +21,8 @@ android:layout_height="match_parent">
     android:id="@+id/textView25"
     android:layout_width="match_parent"
     android:layout_height="0dp"
-    android:text="엄마와의 소중한 순간을 확인할 수 있어요"
+    android:text="엄마와의 소중한 순간을 확인할 수 있어요."
+    android:fontFamily="@font/komacona"
     android:layout_weight="0.5"
     android:textColor="@color/black"
     android:gravity="center"/>
@@ -42,8 +44,8 @@ android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/add_diary_btn"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"

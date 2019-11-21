@@ -20,21 +20,21 @@
             android:id="@+id/dateText"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="5"
+            android:layout_weight="4"
             android:layout_marginTop="15dp"
             android:textSize="17sp"
-            android:gravity="end"
-            android:layout_marginEnd="10dp"
+            android:gravity="end|center_vertical"
+            android:layout_marginEnd="8dp"
             tools:text = "adfdfdf"/>
 
         <ImageView
             android:id="@+id/selectdatebtn"
-            android:layout_width="20dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
             app:srcCompat="@drawable/selecdatebtn"
             android:paddingEnd="20dp"
-            android:paddingTop="10dp"
+            android:paddingTop="9dp"
             android:layout_marginTop="10dp"/>
 
         <ImageView
@@ -43,9 +43,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1.5"
             app:srcCompat="@drawable/savebtn"
-            android:paddingEnd="20dp"
+            android:paddingEnd="5dp"
             android:paddingTop="10dp"
-            android:paddingBottom="10dp"/>
+            android:paddingBottom="3dp"
+            android:layout_marginStart="10dp"/>
 
     </LinearLayout>
 
@@ -56,14 +57,20 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:srcCompat="@drawable/add_pic_btn"
+        android:padding="100dp"
         android:background = "@color/cameragrey"
         android:layout_weight="3.5"/>
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editText"
+        android:layout_weight="4"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
         android:hint="오늘의 대화를 기록해 보세요"
-        android:layout_weight="4"/>
+        android:padding="10dp"/>
+
+
 </LinearLayout>

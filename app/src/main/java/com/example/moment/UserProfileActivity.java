@@ -50,15 +50,20 @@ public class UserProfileActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.startCardButton2:
-                    startCategoryActivity();
+                    startRecyclerView();
             }
         }
     };
 
-    private void startCategoryActivity(){
-        Intent intent = new Intent(this, MainActivity.class);
+    private void startRecyclerView() {
+        Intent intent = new Intent(this, MainActivityRecyclerView.class);
         startActivity(intent);
     }
+
+//    private void startCategoryActivity(){
+//        Intent intent = new Intent(this, MainActivity.class);
+//        startActivity(intent);
+//    }
 
 
 

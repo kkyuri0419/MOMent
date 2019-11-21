@@ -2,6 +2,7 @@ package com.example.moment;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ public class MainActivityTutorial extends AppCompatActivity {
                     startUserProfileActivity();
                     break;
                 case R.id.tutorialclosebtn:
+//                    startRecyclerView();
                     startUserProfileActivity();
                     break;
 
@@ -39,6 +41,10 @@ public class MainActivityTutorial extends AppCompatActivity {
 
         private void startUserProfileActivity() {
             Intent intent = new Intent(this, UserProfileActivity.class);
+            startActivity(intent);
+        }
+        private void startRecyclerView() {
+            Intent intent = new Intent(this, MainActivityRecyclerView.class);
             startActivity(intent);
         }
 
