@@ -122,7 +122,7 @@ public class DiaryMakeNew extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
         intent.setType("image/*");
-        startActivityForResult(intent, PICK_IMAGE);
+//        startActivityForResult(intent, PICK_IMAGE);
     }
 
 
