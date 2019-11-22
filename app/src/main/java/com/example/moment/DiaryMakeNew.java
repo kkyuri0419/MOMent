@@ -225,7 +225,6 @@ public class DiaryMakeNew extends AppCompatActivity {
                 //갤러리에서 사진 선택
                 takePhotoFromGallery();
                 alertDialog.dismiss();
-                startToast("갤러리가 보여집니다.");
             }
         });
 

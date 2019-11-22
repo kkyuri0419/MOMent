@@ -9,6 +9,7 @@ public class MomentApplication extends Application {
     public MediaRecorder mediaRecorder;
     public DBhelper dBhelper;
     public boolean isAudio=false;
+    public boolean dad = true;
 
     @Override
     public void onCreate() {

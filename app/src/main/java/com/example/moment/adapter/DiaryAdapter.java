@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,9 +30,6 @@ public class DiaryAdapter extends BaseAdapter {
         this.diaryObjects = data;
         this.mLayoutInflater = mLayoutInflater.from(mContext);
     }
-
-
-
 
 
 
@@ -58,6 +56,7 @@ public class DiaryAdapter extends BaseAdapter {
         ImageView listviewImage = (ImageView)view.findViewById(R.id.listviewImage);
         ImageView listviewAuidioImage = (ImageView)view.findViewById(R.id.audiobtn);
         TextView listviewTitle = (TextView)view.findViewById(R.id.listviewTitle);
+        EditText listviewContent = (EditText)view.findViewById(R.id.editText);
 //        TextView listViewContent = (TextView)view.findViewById(R.id.listviewContent);
 
 
@@ -65,8 +64,9 @@ public class DiaryAdapter extends BaseAdapter {
         ArrayList<DiaryObject> diaryObject = mApp.dBhelper.selectdiary();
 
         for (int i = 0; i < diaryObject.size(); i++){
+
             listviewTitle.setText(diaryObject.get(i).d_title);
-//            listViewContent.setText(diaryObject.get(i).d_content);
+            listviewContent.setText(diaryObject.get(i).d_content);
             File imgFile = new  File(diaryObject.get(i).d_photo);
             if (imgFile.exists()){
                 Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
@@ -80,10 +80,6 @@ public class DiaryAdapter extends BaseAdapter {
             }
 
         }
-
-
-
-
         return null;
     }
 }

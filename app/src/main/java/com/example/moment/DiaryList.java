@@ -13,6 +13,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.moment.adapter.DiaryAdapter;
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ public class DiaryList extends AppCompatActivity {
     ListView listView;
     private MomentApplication mApp;
     private ImageView maddDiarybtn;
+    ArrayList<DiaryObject> diaryObjects;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,8 @@ public class DiaryList extends AppCompatActivity {
                 startDiaryMakeActivity();
             }
         });
+
+        DiaryAdapter diaryAdapter = new DiaryAdapter(this,diaryObjects);
     }
 
 //        View view = mLayoutInflater.inflate(R.layout.format_listview,null);
@@ -80,6 +85,9 @@ public class DiaryList extends AppCompatActivity {
 //        }
 
 
+    public ListView getListView() {
+        return listView;
+    }
 
     private void startDiaryMakeActivity() {
         Intent intent = new Intent(this, DiaryMakeNew.class);

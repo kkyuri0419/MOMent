@@ -35,6 +35,7 @@ public class CardActivity extends AppCompatActivity {
     private MomentApplication mApp;
     final int REQUEST_PERMISSION_CODE = 1000;
     private int count =0;
+    MomentApplication dad;
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -171,9 +172,12 @@ public class CardActivity extends AppCompatActivity {
 
 
     private void throwcard(){
+
         int randomvalue = (int)(Math.random()*80+0);
         CardObject cardObject =mApp.dBhelper.selectcard(randomvalue);
 
+        //유저프로파일에서 아빠선택을 받아와서 만약 false 라면
+        //
         String[] category_names = getResources().getStringArray(R.array.category_names);
 
         TextView categorytext = findViewById(R.id.categoryText);
@@ -182,6 +186,15 @@ public class CardActivity extends AppCompatActivity {
 
 
         TextView contenttext = findViewById(R.id.question);
+
+//        if (cardObject.memberexception != "아빠"){
+//        };
+        if (mApp.dad == false && cardObject.memberexception == "아빠") {
+            ////////다른카드 다시 선택.  ->  랜덤카드
+            randomvalue = (int)(Math.random()*33+30);
+            cardObject =mApp.dBhelper.selectcard(randomvalue);
+        }
+
         contenttext.setText(cardObject.content);
 
         switch (cardObject.category) {
