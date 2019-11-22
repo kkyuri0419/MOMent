@@ -34,8 +34,18 @@ public class DiaryList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary_list);
 
+        ArrayList<DiaryObject> diaryObjects = new ArrayList<>();
+
+
+        DiaryAdapter diaryAdapter = new DiaryAdapter(this,diaryObjects);
+
         maddDiarybtn = (ImageView) findViewById(R.id.add_diary_btn);
         listView = (ListView) findViewById(R.id.diaryList);
+
+        diaryObjects = mApp.dBhelper.selectdiary();
+
+        listView.setAdapter(diaryAdapter);
+        diaryAdapter.notifyDataSetChanged();
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -52,38 +62,7 @@ public class DiaryList extends AppCompatActivity {
             }
         });
 
-        DiaryAdapter diaryAdapter = new DiaryAdapter(this,diaryObjects);
     }
-
-//        View view = mLayoutInflater.inflate(R.layout.format_listview,null);
-//
-//        ImageView listviewImage = (ImageView)view.findViewById(R.id.listviewImage);
-//        ImageView listviewAuidioImage = (ImageView)view.findViewById(R.id.audiobtn);
-//        TextView listviewTitle = (TextView)view.findViewById(R.id.listviewTitle);
-//        TextView listViewContent = (TextView)view.findViewById(R.id.listviewContent);
-//
-//
-//
-//        ArrayList<DiaryObject> diaryObject = mApp.dBhelper.selectdiary();
-//
-//
-//        for (int i = 0; i < diaryObject.size(); i++){
-//            listviewTitle.setText(diaryObject.get(i).d_title);
-//            listViewContent.setText(diaryObject.get(i).d_content);
-//            File imgFile = new  File(diaryObject.get(i).d_photo);
-//            if (imgFile.exists()){
-//                Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-//                listviewImage.setImageBitmap(myBitmap);
-//            }
-//            File audioFile = new File(diaryObject.get(i).d_audio);
-//            if (audioFile != null){
-//                listviewAuidioImage.setImageResource(R.drawable.audio_on);
-//            }else{
-//                listviewAuidioImage.setImageResource(R.drawable.audio_off);
-//            }
-//
-//        }
-
 
     public ListView getListView() {
         return listView;

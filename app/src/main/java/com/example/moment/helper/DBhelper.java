@@ -40,6 +40,7 @@ public class DBhelper extends SQLiteOpenHelper {
     }
 
     public CardObject selectcard (int idx){
+        Log.d(this.getClass().getName(),"카드가 선택됨");
         Cursor cursor=getReadableDatabase().query("card", null, "c_index=?", new String[]{String.valueOf(idx)},null,null,null);
         Log.d(this.getClass().getName(),"인덱스 : " + idx);
         if (cursor.moveToNext()) {
@@ -55,9 +56,12 @@ public class DBhelper extends SQLiteOpenHelper {
         return  null;
     }
     public ArrayList<DiaryObject> selectdiary (){
+//        Log.d(this.getClass().getName(),"ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ줄1");
         Cursor cursor=getReadableDatabase().query("diary", null, null, null,null,null,null);
         ArrayList<DiaryObject> diaryObjects = new ArrayList<>();
+
         while (cursor.moveToNext()) {
+//            Log.d(this.getClass().getName(),"줄4");
 //            여러개를 불러올땐 while문을 써서 arraylist에 add해서 리턴/
             DiaryObject diaryObject= new DiaryObject();
             diaryObject.d_index = cursor.getInt(cursor.getColumnIndex("d_index"));
