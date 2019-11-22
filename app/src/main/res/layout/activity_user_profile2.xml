@@ -175,7 +175,7 @@
             android:background="@drawable/pink_rounded_button"
             android:fontFamily="@font/komacona"
             android:gravity="center"
-            android:text="대화주제 선택하기!"
+            android:text="대화주제 둘러보기"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
     </LinearLayout>

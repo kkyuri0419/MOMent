@@ -20,7 +20,7 @@ public class CategoryActivity extends AppCompatActivity {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), this);
         viewPager.setAdapter(viewPagerAdapter);
 
-        findViewById(R.id.startButton).setOnClickListener(onClickListener);
+        findViewById(R.id.startSelect).setOnClickListener(onClickListener);
         findViewById(R.id.settingButton).setOnClickListener(onClickListener);
         findViewById(R.id.diaryButton).setOnClickListener(onClickListener);
     }
@@ -31,7 +31,7 @@ public class CategoryActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.startButton:
+                case R.id.startSelect:
                     startViewAll();
                     break;
                 case R.id.settingButton:

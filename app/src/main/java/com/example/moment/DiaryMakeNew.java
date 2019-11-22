@@ -60,7 +60,8 @@ public class DiaryMakeNew extends AppCompatActivity {
     private TextView dateText;
     private EditText editText;
     private ImageView add_image_btn;
-    private  File tempFile;
+    private File tempFile;
+    private String imagepath;
 
 
 
@@ -147,12 +148,12 @@ public class DiaryMakeNew extends AppCompatActivity {
 
         diaryObject.d_title = dateText.getText().toString();
         diaryObject.d_content = editText.getText().toString();
-        diaryObject.d_photo = add_image_btn.toString();
+        diaryObject.d_photo = imagepath;
 
 
 //        diaryObject.d_audio = findViewById(R.id.dateText).toString();
+
         Log.d(this.getClass().getName(),"로그 : "+ mApp.dBhelper);
-        mApp.dBhelper.insertdiary(diaryObject);
 
 
         long result = mApp.dBhelper.insertdiary(diaryObject);
@@ -271,7 +272,13 @@ public class DiaryMakeNew extends AppCompatActivity {
 
                 cursor.moveToFirst();
 
+                imagepath = cursor.getString(column_index);
+
+                Log.d("aaa", cursor.getString(column_index));
+
                 tempFile = new File(cursor.getString(column_index));
+
+
 
             } finally {
                 if (cursor != null) {

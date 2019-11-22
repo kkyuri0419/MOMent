@@ -337,11 +337,6 @@ public class CardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startToast("앱이 종료됩니다.");
-                onPause();
-                onDestroy();
-                onDestroy();
-                onDestroy();
-                onDestroy();
                 alertDialog.dismiss();
                 finish();
             }
@@ -381,6 +376,7 @@ public class CardActivity extends AppCompatActivity {
     private void startViewAll() {
         Intent intent = new Intent(this, ViewAll.class);
         startActivity(intent);
+        finish();
     }
 
 
@@ -389,18 +385,6 @@ public class CardActivity extends AppCompatActivity {
         super.onActionModeStarted(mode);
         actionMode = mode;
     }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (actionMode != null) actionMode.finish();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
 
     //좋아요/ 싫어요 버튼에 글씨 넣기
     //좋아요/ 싫어요 버튼 누르면 다음화면으로 가기

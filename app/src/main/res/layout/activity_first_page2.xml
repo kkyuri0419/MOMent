@@ -5,37 +5,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:background="@color/mainPink">
+    android:background="@color/mainPink"
+    android:layout_gravity="center">
 
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:text="MOMent"
-        android:fontFamily="@font/jejumyeongjo"
-        android:textSize="60sp"
-        android:gravity="center|bottom"
-        android:textColor="#FFFFFFFF"
-        android:textStyle="bold"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_below="@id/TitleView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="1dp"
-        android:fontFamily="@font/jejumyeongjo"
-        android:gravity="center_horizontal|top"
-        android:text="엄마와의 소중한 순간 "
-        android:textColor="#FFFFFFFF"
-        android:textSize="20dp" />
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/moment_icon_white"
+            android:layout_weight="2"
+            android:layout_marginStart="25dp"/>
 
-    <ImageView
-        android:layout_width="205dp"
-        android:layout_height="188dp"
-        app:srcCompat="@drawable/moment_icon" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_weight="6"
+                android:fontFamily="@font/jejumyeongjo"
+                android:text="MOMent"
+                android:textColor="#FFFFFFFF"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                android:gravity="start|bottom"/>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_weight="4"
+                android:fontFamily="@font/jejumyeongjo"
+                android:text=" 엄마와의 소중한 순간 "
+                android:gravity="start|top"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
 
 </LinearLayout>

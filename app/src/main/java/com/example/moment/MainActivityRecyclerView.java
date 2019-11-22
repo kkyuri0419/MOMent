@@ -44,7 +44,7 @@ public class MainActivityRecyclerView extends AppCompatActivity {
 
         recyclerView.setAdapter(mainAdapterRecyclerView);
 
-        findViewById(R.id.startButton).setOnClickListener(onClickListener);
+        findViewById(R.id.startSelect).setOnClickListener(onClickListener);
         findViewById(R.id.settingButton).setOnClickListener(onClickListener);
         findViewById(R.id.diaryButton).setOnClickListener(onClickListener);
     }
@@ -55,7 +55,7 @@ public class MainActivityRecyclerView extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.startButton:
+                case R.id.startSelect:
                     startViewAll();
                     break;
                 case R.id.settingButton:

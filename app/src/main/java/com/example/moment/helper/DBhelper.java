@@ -76,6 +76,7 @@ public class DBhelper extends SQLiteOpenHelper {
     }
 
     public long insertdiary(DiaryObject diaryObject){
+
         ContentValues contentValues = new ContentValues();
         contentValues.put("d_title",diaryObject.d_title);
         contentValues.put("d_content",diaryObject.d_content);

@@ -41,7 +41,7 @@ public class ViewAll extends AppCompatActivity {
         setContentView(R.layout.activity_view_all_card);
         mApp = (MomentApplication) getApplication();
         mainGrid = (GridLayout) findViewById(R.id.mainGrid);
-        findViewById(R.id.startButton).setOnClickListener(onClickListener);
+        findViewById(R.id.startC).setOnClickListener(onClickListener);
         findViewById(R.id.settingButton).setOnClickListener(onClickListener);
         findViewById(R.id.diaryButton).setOnClickListener(onClickListener);
 
@@ -117,7 +117,7 @@ public class ViewAll extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.startButton:
+                case R.id.startC:
 //                    for(int i=0; i < mApp.btn_state.length ; i++){
 //                        if (mApp.btn_state[i] == true){
 //                            break;
@@ -275,5 +275,11 @@ public class ViewAll extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
 
+        startActivity(new Intent(this, CategoryActivity.class));
+        finish();
+    }
 }
