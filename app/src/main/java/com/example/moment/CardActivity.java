@@ -7,6 +7,7 @@ import android.media.MediaRecorder;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 
 import android.widget.Button;
@@ -56,22 +57,6 @@ public class CardActivity extends AppCompatActivity {
             imageButton.setImageResource(R.drawable.audio_on);
         }
 
-      //  인덱스 랜덤으로 만들어서 넣어주면 카드오브ㅈ
-//        CardObject cardObject=mApp.dBhelper.selectcard(0);
-/*
-        DiaryObject diaryObject = new DiaryObject();
-        diaryObject.d_audio ="audio path";
-        diaryObject.d_photo = "photo path";
-        diaryObject.d_title = " title";//yyyyMMdd
-        diaryObject.d_content = "content";//edittext.gettext.tostring
-
-        long result = mApp.dBhelper.insertdiary(diaryObject);
-        if(result ==1){
-            //정상 다음화면
-        }else{
-            //문제가 있음을 사용자에게 toast
-        }
-        */
         pathSave = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getAbsolutePath()+
                 File.separator+
                 new SimpleDateFormat("yyyyMMddhhmmss_SSS").format(new Date())+".wav";
@@ -89,82 +74,7 @@ public class CardActivity extends AppCompatActivity {
         //주제 TextColor 바꿔주고
         //내용 던져주기.
 
-//        for(int i = 0;i<20;i++){
-//            int randomvalue = (int)(Math.random()*80+0);
-//            CardObject cardObject =mApp.dBhelper.selectcard(0);
-//
-//            TextView categorytext = findViewById(R.id.categoryText);
-//            categorytext.setText(cardObject.category);
-//
-//            TextView contenttext = findViewById(R.id.question);
-//            contenttext.setText(cardObject.content);
-//
-//            switch (cardObject.category) {
-//                case 0:
-//                    findViewById(R.id.cardBackground).setBackgroundColor(getResources().getColor(R.color.color0));
-//                    findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_0);
-//                    categorytext.setTextColor(getResources().getColor(R.color.color0));
-//                    break;
-//                case 1:
-//                    findViewById(R.id.cardBackground).setBackgroundColor(getResources().getColor(R.color.color1));
-//                    findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_1);
-//                    categorytext.setTextColor(getResources().getColor(R.color.color1));
-//                    break;
-//                case 2:
-//                    findViewById(R.id.cardBackground).setBackgroundColor(getResources().getColor(R.color.color2));
-//                    findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_2);
-//                    categorytext.setTextColor(getResources().getColor(R.color.color2));
-//                    break;
-//                case 3:
-//                    findViewById(R.id.cardBackground).setBackgroundColor(getResources().getColor(R.color.color3));
-//                    findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_3);
-//                    categorytext.setTextColor(getResources().getColor(R.color.color3));
-//                    break;
-//                case 4:
-//                    findViewById(R.id.cardBackground).setBackgroundColor(getResources().getColor(R.color.color4));
-//                    findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_4);
-//                    categorytext.setTextColor(getResources().getColor(R.color.color4));
-//                    break;
-//                case 5:
-//                    findViewById(R.id.cardBackground).setBackgroundColor(getResources().getColor(R.color.color5));
-//                    findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_5);
-//                    categorytext.setTextColor(getResources().getColor(R.color.color5));
-//                    break;
-//                case 6:
-//                    findViewById(R.id.cardBackground).setBackgroundColor(getResources().getColor(R.color.color6));
-//                    findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_6);
-//                    categorytext.setTextColor(getResources().getColor(R.color.color6));
-//                    break;
-//                case 7:
-//                    findViewById(R.id.cardBackground).setBackgroundColor(getResources().getColor(R.color.color7));
-//                    findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_7);
-//                    categorytext.setTextColor(getResources().getColor(R.color.color7));
-//                    break;
-//                case 8:
-//                    findViewById(R.id.cardBackground).setBackgroundColor(getResources().getColor(R.color.color8));
-//                    findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_8);
-//                    categorytext.setTextColor(getResources().getColor(R.color.color8));
-//                    break;
-////                case 9:
-////                    findViewById(R.id.cardBackground).setBackgroundColor(getResources().getColor(R.color.color9));
-////                    findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_9);
-////                    categorytext.setTextColor(getResources().getColor(R.color.color9));
-////                    break;
-//            }
-//
-//        }
-
-
-
-
-
         };
-
-
-
-
-
-
 
 
 
@@ -176,7 +86,12 @@ public class CardActivity extends AppCompatActivity {
             switch (v.getId()){
                 case R.id.audioStopbtn:
                     if (mApp.isAudio!=false){
-                        stopAudio();
+                        mApp.mediaRecorder.stop();
+                        mApp.isAudio =false;
+                        ImageButton imageButton = (ImageButton)findViewById(R.id.audioStopbtn);
+                        imageButton.setImageResource(R.drawable.audio_off);
+                        startToast("녹음이 종료됩니다.");
+//                        stopAudio();
                     }else{
                         if (checkPermissionFromDevice()) {
                             pathSave = Environment.getExternalStorageDirectory().getAbsolutePath() + "/"
@@ -185,6 +100,8 @@ public class CardActivity extends AppCompatActivity {
                             try {
                                 mApp.mediaRecorder.prepare();
                                 mApp.mediaRecorder.start();
+                                ImageButton imageButton = (ImageButton)findViewById(R.id.audioStopbtn);
+                                imageButton.setImageResource(R.drawable.audio_on);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -198,23 +115,22 @@ public class CardActivity extends AppCompatActivity {
                             requestPermission();
                         }
                     }
-                    stopAudio();
                     break;
                 case R.id.closebtn:
                     closePopup();
                     break;
                 case R.id.like:
-                    if (count <= 30){
+                    if (count <= 20){
                         throwcard();
                     }else{
                         showPopupWhenFinished();
                     }break;
                 case R.id.hate:
-//                    if (count <= 20){
-//                        throwcard();
-//                    }else{
+                    if (count <= 20){
+                        throwcard();
+                    }else {
                         showPopupWhenFinished();
-//                    }
+                    }
             }
         }
     };
@@ -314,11 +230,11 @@ public class CardActivity extends AppCompatActivity {
                 findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_8);
                 categorytext.setTextColor(getResources().getColor(R.color.color8));
                 break;
-//                case 9:
-//                    findViewById(R.id.cardBackground).setBackgroundColor(getResources().getColor(R.color.color9));
-//                    findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_9);
-//                    categorytext.setTextColor(getResources().getColor(R.color.color9));
-//                    break;
+            case 9:
+                findViewById(R.id.cardBackground).setBackgroundColor(getResources().getColor(R.color.color9));
+                findViewById(R.id.cardBackground).setBackgroundResource(R.drawable.w_9);
+                categorytext.setTextColor(getResources().getColor(R.color.color9));
+                break;
         }
         count ++;
     }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.moment.CardObject;
 import com.example.moment.DiaryObject;
@@ -40,12 +41,15 @@ public class DBhelper extends SQLiteOpenHelper {
 
     public CardObject selectcard (int idx){
         Cursor cursor=getReadableDatabase().query("card", null, "c_index=?", new String[]{String.valueOf(idx)},null,null,null);
+        Log.d(this.getClass().getName(),"인덱스 : " + idx);
         if (cursor.moveToNext()) {
+            Log.d(this.getClass().getName(),"카드 인덱스 : ");
             CardObject cardObject= new CardObject();
             cardObject.c_index = cursor.getInt(cursor.getColumnIndex("c_index"));
             cardObject.category = cursor.getInt(cursor.getColumnIndex("category"));
             cardObject.content = cursor.getString(cursor.getColumnIndex("content"));
             cardObject.memberexception = cursor.getString(cursor.getColumnIndex("memberexception"));
+            Log.d(this.getClass().getName(),"카드 인덱스 : " + cardObject.c_index);
             return  cardObject;
         }
         return  null;
@@ -72,7 +76,9 @@ public class DBhelper extends SQLiteOpenHelper {
         contentValues.put("d_content",diaryObject.d_content);
         contentValues.put("d_photo",diaryObject.d_photo);
         contentValues.put("d_audio",diaryObject.d_audio);
+
         long result = getWritableDatabase().insert("diary",null,contentValues);
+        Log.d(this.getClass().getName(),"로그 RESULT = "+result);
         return  result;
     }
 

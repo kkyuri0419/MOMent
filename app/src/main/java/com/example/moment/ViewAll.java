@@ -26,7 +26,7 @@ import androidx.viewpager.widget.ViewPager;
 public class ViewAll extends AppCompatActivity {
 
     GridLayout mainGrid;
-    boolean[] btn_state = {false,false,false,false,false,false,false,false};
+    boolean[] btn_state = {false,false,false,false,false,false,false,false,false};
     public String pathSave = "";
     private MomentApplication mApp;
     final int REQUEST_PERMISSION_CODE = 1000;
@@ -41,7 +41,7 @@ public class ViewAll extends AppCompatActivity {
         setContentView(R.layout.activity_view_all_card);
         mApp = (MomentApplication) getApplication();
         mainGrid = (GridLayout) findViewById(R.id.mainGrid);
-        findViewById(R.id.startCButton).setOnClickListener(onClickListener);
+        findViewById(R.id.startButton).setOnClickListener(onClickListener);
         findViewById(R.id.settingButton).setOnClickListener(onClickListener);
         findViewById(R.id.diaryButton).setOnClickListener(onClickListener);
 
@@ -115,7 +115,7 @@ public class ViewAll extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.startCButton:
+                case R.id.startButton:
                     showPopup();
                     break;
                 case R.id.settingButton:
