@@ -125,13 +125,13 @@ public class CardActivity extends AppCompatActivity {
                     closePopup();
                     break;
                 case R.id.like:
-                    if (count <= 3){
+                    if (count <= 20){
                         throwcard();
                     }else{
                         showPopupWhenFinished();
                     }break;
                 case R.id.hate:
-                    if (count <= 3){
+                    if (count <= 20){
                         throwcard();
                     }else {
                         showPopupWhenFinished();
@@ -147,7 +147,7 @@ public class CardActivity extends AppCompatActivity {
         View mView = getLayoutInflater().inflate(R.layout.popup_when_finished, null);
 
         final Button yescontinue = (Button) mView.findViewById(R.id.yescontinue);
-        final Button nofinish = (Button) mView.findViewById(R.id.nofinish);
+        final Button gotodiary = (Button) mView.findViewById(R.id.gotodiary);
 
         alert.setView((mView));
 
@@ -161,12 +161,10 @@ public class CardActivity extends AppCompatActivity {
             }
         });
 
-        nofinish.setOnClickListener(new View.OnClickListener() {
+        gotodiary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startToast("앱이 종료됩니다.");
-                onDestroy();
-                finish();
+                startDiaryList();
             }
         });
 
@@ -176,6 +174,11 @@ public class CardActivity extends AppCompatActivity {
 
     }
 
+
+    private void startDiaryList() {
+        Intent intent = new Intent(this, DiaryList.class);
+        startActivity(intent);
+    }
 
     private void throwcard(){
 

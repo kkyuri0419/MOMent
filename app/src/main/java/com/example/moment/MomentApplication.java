@@ -17,7 +17,7 @@ public class MomentApplication extends Application {
     public int selectedDiaryIndex;
     public String imagepath;
     public String imageNull = "androidx.appcompat.widget.AppCompatImageView{5bc2c1c VFED..C.. ........ 0,243-1080,1098 #7f0a0041 app:id/add_image_btn}";
-
+    public DiaryObject selecteddiary;
 
 
     @Override

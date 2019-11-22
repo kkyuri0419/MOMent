@@ -42,7 +42,7 @@ public class DiaryList extends AppCompatActivity {
 
         Log.d(this.getClass().getName(),"어댑터 전000000000000000000000000");
         diaryObjects = mApp.dBhelper.selectdiary();
-        DiaryAdapter diaryAdapter = new DiaryAdapter(this,diaryObjects);
+        final DiaryAdapter diaryAdapter = new DiaryAdapter(this,diaryObjects);
         listView.setAdapter(diaryAdapter);
 
         Log.d(this.getClass().getName(),"어댑터 후000000000000000000000000");
@@ -54,9 +54,12 @@ public class DiaryList extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(DiaryList.this, "You have clicked on" + position, Toast.LENGTH_SHORT).show();
-                mApp.selectedDiaryIndex = position;
-                startViewDiary(position);
+//                Toast.makeText(DiaryList.this, "You have clicked on" + position, Toast.LENGTH_SHORT).show();
+                DiaryObject clickedDiary = (DiaryObject) diaryAdapter.getItem(position);
+//                mApp.selectedDiaryIndex = clickedDiary.d_index;
+                mApp.selecteddiary = clickedDiary;
+
+                startViewDiary();
 
             }
         });
@@ -70,8 +73,8 @@ public class DiaryList extends AppCompatActivity {
 
     }
 
-    private void startViewDiary(int position) {
-        Intent intent = new Intent(this, DiaryMakeNew.class);
+    private void startViewDiary() {
+        Intent intent = new Intent(this, ViewDiary.class);
         startActivity(intent);
     }
 
@@ -83,4 +86,6 @@ public class DiaryList extends AppCompatActivity {
         Intent intent = new Intent(this, DiaryMakeNew.class);
         startActivity(intent);
     }
+
+
 }

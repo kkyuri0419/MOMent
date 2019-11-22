@@ -42,7 +42,7 @@ public class DiaryAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return position;
+        return diaryObjects.get(position);
     }
 
     @Override
@@ -71,6 +71,7 @@ public class DiaryAdapter extends BaseAdapter {
         if (diaryObjects.get(position).d_photo != null){
             File imgFile = new  File(diaryObjects.get(position).d_photo);
             Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+
             listviewImage.setImageBitmap(myBitmap);
             Log.d(this.getClass().getName(),"사진이 있을경우 경우");
         }else{

@@ -52,6 +52,7 @@
         <activity android:name="DiaryList"/>
         <activity android:name=".DiaryMakeNew"/>
         <activity android:name=".MainActivityRecyclerView"/>
+        <activity android:name=".ViewDiary"/>
     </application>
 
 </manifest>
