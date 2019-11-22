@@ -36,7 +36,7 @@ public class DiaryList extends AppCompatActivity {
         setContentView(R.layout.activity_diary_list);
 
         mApp = (MomentApplication) getApplication();
-        ArrayList<DiaryObject> diaryObjects = new ArrayList<>();
+//        ArrayList<DiaryObject> diaryObjects = new ArrayList<>();
         maddDiarybtn = (ImageView) findViewById(R.id.add_diary_btn);
         listView = (ListView) findViewById(R.id.diaryList);
 
@@ -54,7 +54,10 @@ public class DiaryList extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(DiaryList.this, "You have clicked on", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DiaryList.this, "You have clicked on" + position, Toast.LENGTH_SHORT).show();
+                mApp.selectedDiaryIndex = position;
+                startViewDiary(position);
+
             }
         });
 
@@ -65,6 +68,11 @@ public class DiaryList extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void startViewDiary(int position) {
+        Intent intent = new Intent(this, DiaryMakeNew.class);
+        startActivity(intent);
     }
 
     public ListView getListView() {

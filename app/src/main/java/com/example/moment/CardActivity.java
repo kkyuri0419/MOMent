@@ -125,13 +125,13 @@ public class CardActivity extends AppCompatActivity {
                     closePopup();
                     break;
                 case R.id.like:
-                    if (count <= 20){
+                    if (count <= 3){
                         throwcard();
                     }else{
                         showPopupWhenFinished();
                     }break;
                 case R.id.hate:
-                    if (count <= 20){
+                    if (count <= 3){
                         throwcard();
                     }else {
                         showPopupWhenFinished();

@@ -16,11 +16,21 @@
         android:layout_height="0dp"
         android:layout_weight="0.7">
 
+        <ImageView
+            android:id="@+id/deletebtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/deletebtn"
+            android:paddingTop="25dp"
+            android:paddingBottom="5dp"
+            android:layout_marginStart="10dp"/>
+
         <TextView
             android:id="@+id/dateText"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"
+            android:layout_weight="3"
             android:layout_marginTop="15dp"
             android:textSize="17sp"
             android:gravity="end|center_vertical"
@@ -34,17 +44,17 @@
             android:layout_weight="0.8"
             app:srcCompat="@drawable/selecdatebtn"
             android:paddingEnd="20dp"
-            android:paddingTop="9dp"
+            android:paddingTop="10dp"
             android:layout_marginTop="10dp"/>
 
         <ImageView
-            android:id="@+id/savebtn"
+            android:id="@+id/editbtn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.5"
-            app:srcCompat="@drawable/savebtn"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/editbtn"
             android:paddingEnd="5dp"
-            android:paddingTop="10dp"
+            android:paddingTop="25dp"
             android:paddingBottom="3dp"
             android:layout_marginStart="10dp"/>
 

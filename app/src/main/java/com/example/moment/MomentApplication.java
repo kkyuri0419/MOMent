@@ -14,6 +14,10 @@ public class MomentApplication extends Application {
     public boolean daughter =false;
     public boolean son =false;
     boolean[] btn_state = {false,false,false,false,false,false,false,false,false};
+    public int selectedDiaryIndex;
+    public String imagepath;
+    public String imageNull = "androidx.appcompat.widget.AppCompatImageView{5bc2c1c VFED..C.. ........ 0,243-1080,1098 #7f0a0041 app:id/add_image_btn}";
+
 
 
     @Override

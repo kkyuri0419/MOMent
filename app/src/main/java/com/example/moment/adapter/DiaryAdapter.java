@@ -19,6 +19,8 @@ import com.example.moment.R;
 import java.io.File;
 import java.util.ArrayList;
 
+import static com.example.moment.R.drawable.add_diary_btn;
+
 public class DiaryAdapter extends BaseAdapter {
 
     private MomentApplication mApp;
@@ -64,12 +66,17 @@ public class DiaryAdapter extends BaseAdapter {
 
         listviewTitle.setText(diaryObjects.get(position).d_title);
 //        listviewContent.setText(diaryObjects.get(position).d_content)
-        ;
-//        File imgFile = new  File(diaryObjects.get(position).d_photo);
-//        if (imgFile.exists()){
-//            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-//            listviewImage.setImageBitmap(myBitmap);
-//        }
+
+
+        if (diaryObjects.get(position).d_photo != null){
+            File imgFile = new  File(diaryObjects.get(position).d_photo);
+            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            listviewImage.setImageBitmap(myBitmap);
+            Log.d(this.getClass().getName(),"사진이 있을경우 경우");
+        }else{
+            Log.d(this.getClass().getName(),"사진이 없을 경우 : "+ diaryObjects.get(position).d_photo);
+            listviewImage.setImageResource(R.drawable.like_ala);
+        }
 //        File audioFile = new File(diaryObjects.get(position).d_audio);
 //        if (audioFile != null){
 //            listviewAuidioImage.setImageResource(R.drawable.audio_on);

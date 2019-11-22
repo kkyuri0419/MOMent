@@ -56,7 +56,7 @@
         android:id="@+id/add_image_btn"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:srcCompat="@drawable/add_pic_btn"
+        android:background="@drawable/add_pic_btn"
         android:layout_weight="3.5"/>
 
     <EditText

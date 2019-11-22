@@ -61,7 +61,7 @@ public class DiaryMakeNew extends AppCompatActivity {
     private EditText editText;
     private ImageView add_image_btn;
     private File tempFile;
-    private String imagepath;
+//    private String imagepath;
 
 
 
@@ -148,7 +148,7 @@ public class DiaryMakeNew extends AppCompatActivity {
 
         diaryObject.d_title = dateText.getText().toString();
         diaryObject.d_content = editText.getText().toString();
-        diaryObject.d_photo = imagepath;
+        diaryObject.d_photo = mApp.imagepath;
 
 
 //        diaryObject.d_audio = findViewById(R.id.dateText).toString();
@@ -165,6 +165,7 @@ public class DiaryMakeNew extends AppCompatActivity {
             startToast("저장불가능");
             //문제가 있음을 사용자에게 toast
         }
+        mApp.imagepath = "";
 
     }
 
@@ -272,7 +273,13 @@ public class DiaryMakeNew extends AppCompatActivity {
 
                 cursor.moveToFirst();
 
-                imagepath = cursor.getString(column_index);
+                if(cursor.getString(column_index) != mApp.imageNull || cursor.getString(column_index) != null) {
+                    Log.d(this.getClass().getName(),"사진이 저장됨");
+                    mApp.imagepath = cursor.getString(column_index);
+                }else{
+                    Log.d(this.getClass().getName(),"사진이 저장되지 않음");
+                    mApp.imagepath = String.valueOf(R.drawable.like_ala);
+                }
 
                 Log.d("aaa", cursor.getString(column_index));
 

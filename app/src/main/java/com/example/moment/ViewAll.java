@@ -44,6 +44,7 @@ public class ViewAll extends AppCompatActivity {
         findViewById(R.id.startC).setOnClickListener(onClickListener);
         findViewById(R.id.settingButton).setOnClickListener(onClickListener);
         findViewById(R.id.diaryButton).setOnClickListener(onClickListener);
+        mApp.btn_state = new boolean[]{false, false, false, false, false, false, false, false,false};
 
 
 
