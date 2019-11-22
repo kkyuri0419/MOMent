@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -34,17 +35,19 @@ public class DiaryList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary_list);
 
+        mApp = (MomentApplication) getApplication();
         ArrayList<DiaryObject> diaryObjects = new ArrayList<>();
-
-
-        DiaryAdapter diaryAdapter = new DiaryAdapter(this,diaryObjects);
-
         maddDiarybtn = (ImageView) findViewById(R.id.add_diary_btn);
         listView = (ListView) findViewById(R.id.diaryList);
 
+        Log.d(this.getClass().getName(),"어댑터 전000000000000000000000000");
         diaryObjects = mApp.dBhelper.selectdiary();
-
+        DiaryAdapter diaryAdapter = new DiaryAdapter(this,diaryObjects);
         listView.setAdapter(diaryAdapter);
+
+        Log.d(this.getClass().getName(),"어댑터 후000000000000000000000000");
+        Log.d(this.getClass().getName(),"어댑터 후000000000000000000000000");
+
         diaryAdapter.notifyDataSetChanged();
 
 

@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -26,7 +27,6 @@ import androidx.viewpager.widget.ViewPager;
 public class ViewAll extends AppCompatActivity {
 
     GridLayout mainGrid;
-    boolean[] btn_state = {false,false,false,false,false,false,false,false,false};
     public String pathSave = "";
     private MomentApplication mApp;
     final int REQUEST_PERMISSION_CODE = 1000;
@@ -58,47 +58,48 @@ public class ViewAll extends AppCompatActivity {
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (btn_state[finalI] == false){
+                    if (mApp.btn_state[finalI] == false){
                         imageView.setImageResource(R.drawable.card_back);
-                        btn_state[finalI] = true;
+                        mApp.btn_state[finalI] = true;
+                        Log.d(this.getClass().getName(),"클릭값 : " + mApp.btn_state[finalI]);
                     }
                     else{
                         switch (finalI){
                             case 0:
                                 imageView.setImageResource(R.drawable.final0);
-                                btn_state[finalI] = false;
+                                mApp.btn_state[finalI] = false;
                                 break;
                             case 1:
                                 imageView.setImageResource(R.drawable.final1);
-                                btn_state[finalI] = false;
+                                mApp.btn_state[finalI] = false;
                                 break;
                             case 2:
                                 imageView.setImageResource(R.drawable.final2);
-                                btn_state[finalI] = false;
+                                mApp.btn_state[finalI] = false;
                                 break;
                             case 3:
                                 imageView.setImageResource(R.drawable.final3);
-                                btn_state[finalI] = false;
+                                mApp.btn_state[finalI] = false;
                                 break;
                             case 4:
                                 imageView.setImageResource(R.drawable.final4);
-                                btn_state[finalI] = false;
+                                mApp.btn_state[finalI] = false;
                                 break;
                             case 5:
                                 imageView.setImageResource(R.drawable.final5);
-                                btn_state[finalI] = false;
+                                mApp.btn_state[finalI] = false;
                                 break;
                             case 6:
                                 imageView.setImageResource(R.drawable.final6);
-                                btn_state[finalI] = false;
+                                mApp.btn_state[finalI] = false;
                                 break;
                             case 7:
                                 imageView.setImageResource(R.drawable.final7);
-                                btn_state[finalI] = false;
+                                mApp.btn_state[finalI] = false;
                                 break;
                             case 8:
                                 imageView.setImageResource(R.drawable.final8);
-                                btn_state[finalI] = false;
+                                mApp.btn_state[finalI] = false;
                                 break;
 
                         }
@@ -107,6 +108,7 @@ public class ViewAll extends AppCompatActivity {
                 }
             });
         }
+
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener(){
@@ -116,6 +118,13 @@ public class ViewAll extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.startButton:
+//                    for(int i=0; i < mApp.btn_state.length ; i++){
+//                        if (mApp.btn_state[i] == true){
+//                            break;
+//                        }else if(i == 9 && mApp.btn_state[9] == false){
+//                            startToast("카테고리를 선택하지 않으면 모든 카테고리가 포함됩니다.");
+//                        }
+//                    }
                     showPopup();
                     break;
                 case R.id.settingButton:

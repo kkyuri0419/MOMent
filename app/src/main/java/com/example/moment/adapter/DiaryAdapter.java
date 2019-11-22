@@ -50,6 +50,9 @@ public class DiaryAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
+        Log.d(this.getClass().getName(),"어댑터 뷰 리턴");
+
         View view = mLayoutInflater.inflate(R.layout.format_listview,null);
 
         ImageView listviewImage = (ImageView)view.findViewById(R.id.listviewImage);
@@ -60,20 +63,20 @@ public class DiaryAdapter extends BaseAdapter {
 
 
         listviewTitle.setText(diaryObjects.get(position).d_title);
-        listviewContent.setText(diaryObjects.get(position).d_content)
+//        listviewContent.setText(diaryObjects.get(position).d_content)
         ;
-        File imgFile = new  File(diaryObjects.get(position).d_photo);
-        if (imgFile.exists()){
-            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-            listviewImage.setImageBitmap(myBitmap);
-        }
-        File audioFile = new File(diaryObjects.get(position).d_audio);
-        if (audioFile != null){
-            listviewAuidioImage.setImageResource(R.drawable.audio_on);
-        }else{
-            listviewAuidioImage.setImageResource(R.drawable.audio_off);
-        }
-
+//        File imgFile = new  File(diaryObjects.get(position).d_photo);
+//        if (imgFile.exists()){
+//            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+//            listviewImage.setImageBitmap(myBitmap);
+//        }
+//        File audioFile = new File(diaryObjects.get(position).d_audio);
+//        if (audioFile != null){
+//            listviewAuidioImage.setImageResource(R.drawable.audio_on);
+//        }else{
+//            listviewAuidioImage.setImageResource(R.drawable.audio_off);
+//        }
+        Log.d(this.getClass().getName(),"어댑터 뷰 리턴");
         return view;
     }
 }

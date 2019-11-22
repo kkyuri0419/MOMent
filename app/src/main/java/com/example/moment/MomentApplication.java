@@ -9,7 +9,12 @@ public class MomentApplication extends Application {
     public MediaRecorder mediaRecorder;
     public DBhelper dBhelper;
     public boolean isAudio=false;
-    public boolean dad = true;
+    public boolean dad = false;
+    public boolean mom =false;
+    public boolean daughter =false;
+    public boolean son =false;
+    boolean[] btn_state = {false,false,false,false,false,false,false,false,false};
+
 
     @Override
     public void onCreate() {

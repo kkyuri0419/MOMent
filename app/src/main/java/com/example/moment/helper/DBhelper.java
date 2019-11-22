@@ -56,8 +56,9 @@ public class DBhelper extends SQLiteOpenHelper {
         return  null;
     }
     public ArrayList<DiaryObject> selectdiary (){
-//        Log.d(this.getClass().getName(),"ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ줄1");
+        Log.d(this.getClass().getName(),"ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ줄1");
         Cursor cursor=getReadableDatabase().query("diary", null, null, null,null,null,null);
+        Log.d(this.getClass().getName(),"ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ줄2");
         ArrayList<DiaryObject> diaryObjects = new ArrayList<>();
 
         while (cursor.moveToNext()) {

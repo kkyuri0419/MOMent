@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -13,6 +14,7 @@ import androidx.gridlayout.widget.GridLayout;
 public class UserProfileActivity extends AppCompatActivity {
     GridLayout mainGrid;
     boolean[] btn_state2 = {false,false,false,false};
+    private MomentApplication mApp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,11 @@ public class UserProfileActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.startCardButton2:
+//                    for(int i=0; i < btn_state2.length ; i++){
+//                        if (btn_state2[3] == false){
+//                            startToast("가족구성원을 선택하지 않으면 모든 구성원이 포함됩니다.");
+//                        }
+//                    }
                     startRecyclerView();
             }
         }
@@ -58,6 +65,10 @@ public class UserProfileActivity extends AppCompatActivity {
     private void startRecyclerView() {
         Intent intent = new Intent(this, MainActivityRecyclerView.class);
         startActivity(intent);
+    }
+
+    private void startToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
 
 //    private void startCategoryActivity(){

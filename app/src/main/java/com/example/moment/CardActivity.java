@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.ActionMode;
 import android.view.View;
 
 import android.widget.Button;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
+import java.security.PrivateKey;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
@@ -28,8 +30,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+
 public class CardActivity extends AppCompatActivity {
 
+    private ActionMode actionMode;
     String pathSave;
     MediaRecorder mediaRecorder;
     private MomentApplication mApp;
@@ -161,6 +165,8 @@ public class CardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startToast("앱이 종료됩니다.");
+                onDestroy();
+                finish();
             }
         });
 
@@ -173,29 +179,54 @@ public class CardActivity extends AppCompatActivity {
 
     private void throwcard(){
 
-        int randomvalue = (int)(Math.random()*80+0);
+        int randomvalue = (int)(Math.random()*130+1);
         CardObject cardObject =mApp.dBhelper.selectcard(randomvalue);
 
         //유저프로파일에서 아빠선택을 받아와서 만약 false 라면
+        if (mApp.dad == false){
+            while (cardObject.memberexception == "아빠"){
+                randomvalue = (int) (Math.random() * 133 + 1);
+                cardObject = mApp.dBhelper.selectcard(randomvalue);
+            }
+
+        }
+//        while (mApp.dad == false && cardObject.memberexception == "아빠") {
+//            ////////다른카드 다시 선택.  ->  랜덤카드
+//            randomvalue = (int) (Math.random() * 33 + 30);
+//            cardObject = mApp.dBhelper.selectcard(randomvalue);
+//        }
         //
+        Log.d(this.getClass().getName(),"버튼0 : " + mApp.btn_state[0]);
+        Log.d(this.getClass().getName(),"버튼1 : " + mApp.btn_state[1]);
+        Log.d(this.getClass().getName(),"버튼2 : " + mApp.btn_state[2]);
+        Log.d(this.getClass().getName(),"버튼3 : " + mApp.btn_state[3]);
+        Log.d(this.getClass().getName(),"버튼4 : " + mApp.btn_state[4]);
+        Log.d(this.getClass().getName(),"버튼5 : " + mApp.btn_state[5]);
+        Log.d(this.getClass().getName(),"버튼6 : " + mApp.btn_state[6]);
+        Log.d(this.getClass().getName(),"버튼7 : " + mApp.btn_state[7]);
+        Log.d(this.getClass().getName(),"버튼8 : " + mApp.btn_state[8]);
+
+        if (cardObject.category != 9) {
+            Log.d(this.getClass().getName(),"카드 카테고리 번호 : "+ cardObject.category);
+            while (mApp.btn_state[cardObject.category] == false){
+                randomvalue = (int) (Math.random() * 133 + 1);
+                cardObject = mApp.dBhelper.selectcard(randomvalue);
+                if (cardObject.category == 9){
+                    break;
+                }
+                Log.d(this.getClass().getName(),"선택되지 않은 카드입니다.");
+            }
+        }
+
         String[] category_names = getResources().getStringArray(R.array.category_names);
 
         TextView categorytext = findViewById(R.id.categoryText);
         categorytext.setText("[ "+category_names[cardObject.category]+" ]");
-
-
-
         TextView contenttext = findViewById(R.id.question);
-
+        contenttext.setText(cardObject.content);
 //        if (cardObject.memberexception != "아빠"){
 //        };
-        if (mApp.dad == false && cardObject.memberexception == "아빠") {
-            ////////다른카드 다시 선택.  ->  랜덤카드
-            randomvalue = (int)(Math.random()*33+30);
-            cardObject =mApp.dBhelper.selectcard(randomvalue);
-        }
 
-        contenttext.setText(cardObject.content);
 
         switch (cardObject.category) {
             case 0:
@@ -306,7 +337,13 @@ public class CardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startToast("앱이 종료됩니다.");
-                android.os.Process.killProcess(android.os.Process.myPid());
+                onPause();
+                onDestroy();
+                onDestroy();
+                onDestroy();
+                onDestroy();
+                alertDialog.dismiss();
+                finish();
             }
         });
 
@@ -347,8 +384,22 @@ public class CardActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onActionModeStarted(ActionMode mode) {
+        super.onActionModeStarted(mode);
+        actionMode = mode;
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (actionMode != null) actionMode.finish();
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 
 
     //좋아요/ 싫어요 버튼에 글씨 넣기
